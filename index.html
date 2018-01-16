@@ -6,72 +6,130 @@
 	<title>fullPage.js - Pure Javascript version</title>
 	<meta name="author" content="Alvaro Trigo Lopez" />
 	<meta name="description" content="fullPage plugin by Alvaro Trigo. Pure javascript version of full screen slider." />
-	<meta name="keywords"  content="fullpage,jquery,alvaro,trigo,plugin,fullscren,screen,full,iphone5,apple,pure,javascript,slider,hijacking" />
+	<meta name="keywords" content="fullpage,jquery,alvaro,trigo,plugin,fullscren,screen,full,iphone5,apple,pure,javascript,slider,hijacking"
+	/>
 	<meta name="Resource-type" content="Document" />
 
-
+	<link rel="stylesheet" href="./css/xini.css">
 	<link rel="stylesheet" type="text/css" href="./dist/javascript.fullPage.css" />
+	<link rel="stylesheet" href="css/style.css">
 
 	<style>
 		/* Reset CSS
 		 * --------------------------------------- */
-		body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,
-		form,fieldset,input,textarea,p,blockquote,th,td {
-		    padding: 0;
-		    margin: 0;
+
+		body,
+		div,
+		dl,
+		dt,
+		dd,
+		ul,
+		ol,
+		li,
+		h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		h6,
+		pre,
+		form,
+		fieldset,
+		input,
+		textarea,
+		p,
+		blockquote,
+		th,
+		td {
+			padding: 0;
+			margin: 0;
 		}
-		a{
-			text-decoration:none;
+
+		a {
+			text-decoration: none;
 		}
+
 		table {
-		    border-spacing: 0;
+			border-spacing: 0;
 		}
-		fieldset,img {
-		    border: 0;
+
+		fieldset,
+		img {
+			border: 0;
 		}
-		address,caption,cite,code,dfn,em,strong,th,var {
-		    font-weight: normal;
-		    font-style: normal;
+
+		address,
+		caption,
+		cite,
+		code,
+		dfn,
+		em,
+		strong,
+		th,
+		var {
+			font-weight: normal;
+			font-style: normal;
 		}
-		strong{
+
+		strong {
 			font-weight: bold;
 		}
-		ol,ul {
-		    list-style: none;
-		    margin:0;
-		    padding:0;
+
+		ol,
+		ul {
+			list-style: none;
+			margin: 0;
+			padding: 0;
 		}
-		caption,th {
-		    text-align: left;
+
+		caption,
+		th {
+			text-align: left;
 
 		}
-		h1,h2,h3,h4,h5,h6 {
-		    font-weight: normal;
-		    font-size: 100%;
-		    margin:0;
-		    padding:0;
-		    color:#444;
+
+		h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		h6 {
+			font-weight: normal;
+			font-size: 100%;
+			margin: 0;
+			padding: 0;
+			color: #444;
 		}
-		q:before,q:after {
-		    content:'';
+
+		q:before,
+		q:after {
+			content: '';
 		}
-		abbr,acronym { border: 0;
+
+		abbr,
+		acronym {
+			border: 0;
 		}
 
 
 		/* Custom CSS
 		 * --------------------------------------- */
-		body{
-			font-family: arial,helvetica;
+
+		body {
+			font-family: arial, helvetica;
 			color: #F2F2F2;
+			transition: background-color .5s;
 		}
-		h1{
+
+		h1 {
 			font-size: 6em;
 		}
-		p{
+
+		p {
 			font-size: 2em;
 		}
-		.content{
+
+		.content {
 			position: relative;
 			top: 50%;
 			transform: translateY(-50%);
@@ -80,116 +138,549 @@
 
 		/* Section 1
 		 * --------------------------------------- */
-		#section0{
-			background-color: #BFDA00;
-		}
-		#section0 h1{
-			color: #444;
-		}
-		#section0 p{
-			color: #333;
-			opacity: 0.4;
-		}
 
+		#section0 {
+			background: url(./imgs/bg2.jpg) no-repeat center/cover;
+		}
 
 		/* Section 2
 		 * --------------------------------------- */
-		#section1{
-			background-color: #2EBE21;
+
+		#section1 {
+			background-color: #64afd6;
 		}
-		#section1 h1{
-			color: #fff;
+
+		#section1 #slide2 {
+			background:url(./imgs/bg1.jpg) no-repeat center/cover;
 		}
-		#section1 p{
-			opacity: 0.8;
+
+		#section1 #slide3 {
+			background:url(./imgs/bg3.jpg) no-repeat center/cover;
 		}
 
 
 		/* Section 3
 		 * --------------------------------------- */
-		#section2{
+
+		#section2 {
 			background-color: #2C3E50;
 		}
-		#section2 h1{
-			color: #F2F2F2;
-		}
-		#section2 p{
-			opacity: 0.6;
-		}
 
-			/* Fixed header and footer.
+
+		/* Fixed header and footer.
 	* --------------------------------------- */
-	#header, #footer{
-		position:fixed;
-		height: 50px;
-		display:block;
-		width: 100%;
-		background: #333;
-		z-index:9;
-		text-align:center;
-		color: #f2f2f2;
-		padding: 20px 0 0 0;
-	}
 
-	#header{
-		top:0px;
-	}
-	#footer{
-		bottom:0px;
-	}
+		#header,
+		#footer {
+			position: fixed;
+			height: 50px;
+			display: block;
+			width: 100%;
+			background: #333;
+			z-index: 9;
+			text-align: center;
+			color: #f2f2f2;
+			padding: 20px 0 0 0;
+		}
+
+		#header {
+			top: 0px;
+			transition: margin-left .5s;
+			padding: 16px;
+		}
+
+		#footer {
+			bottom: 0px;
+		}
+
+		/* 侧边栏 */
+
+		.sidenav {
+			height: 100%;
+			width: 0;
+			position: fixed;
+			z-index: 1;
+			top: 0;
+			left: 0;
+			background-color: #111;
+			overflow-x: hidden;
+			transition: 0.5s;
+			padding-top: 60px;
+		}
+
+		.sidenav a {
+			padding: 8px 8px 8px 32px;
+			text-decoration: none;
+			font-size: 25px;
+			color: #818181;
+			display: block;
+			transition: 0.3s;
+		}
+
+		.sidenav a:hover,
+		.offcanvas a:focus {
+			color: #f1f1f1;
+		}
+
+		.sidenav .closebtn {
+			position: absolute;
+			top: 0;
+			right: 25px;
+			font-size: 36px;
+			margin-left: 50px;
+		}
+
+		@media screen and (max-height: 450px) {
+			.sidenav {
+				padding-top: 15px;
+			}
+			.sidenav a {
+				font-size: 18px;
+			}
+		}
 	</style>
 </head>
+
 <body>
-	<div id="header">MeliodasSAMAi</div>
-	<div id="footer">CopyRight©</div>
-
-<div id="fullpage">
-	<div class="section " id="section0">
-		<div class="content">
-			<h1>fullPage.js</h1>
-			<p>Javascript only version</p>
-		</div>
+	<div id="mySidenav" class="sidenav">
+		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+		<a href="#">About</a>
+		<a href="#">Services</a>
+		<a href="#">Clients</a>
+		<a href="#">Contact</a>
 	</div>
-	<div class="section" id="section1">
-		<div class="slide" id="slide1">
-			<div class="content">
-				<h1>No need for jQuery</h1>
-				<p>
-					5 Kb gzipped!!
-				</p>
-				<p>
-		      		Improve the loading time of your site!
-				</p>
+
+
+
+	<div id="fullpage">
+		<div id="header">
+			MeliodasSAMAi
+			<span id="hebtn" style="position:absolute;right:50px;font-size:30px;cursor:pointer;top:5px;" onclick="openNav()">&#9776;</span>
+		</div>
+		<div id="footer">CopyRight©</div>
+		<div class="section " id="section0">
+			
+		</div>
+		<div class="section" id="section1">
+			<div class="slide" id="slide1">
+				<div class="slide1box">
+					<svg height="600px" width="800px" style="background: #64afd6">
+
+						<!--clouds-->
+						<path stroke="#b3d8eb" stroke-width="3" d="M100 60 H160" />
+						<path stroke="#b3d8eb" stroke-width="3" d="M300 20 H360" />
+						<path stroke="#b3d8eb" stroke-width="3" d="M600 40 H660" />
+						<path stroke="#b3d8eb" stroke-width="3" d="M200 140 H230" />
+						<path stroke="#b3d8eb" stroke-width="3" d="M250 225 H330" />
+						<path stroke="#b3d8eb" stroke-width="3" d="M470 235 H500" />
+						<path d="M350 120 H400 A10 10  -1 0 0 390 90 A10 10 -1 0 0 350 90 A10 10 -1 0 0 350 120" fill="#fff" />
+						<!--sun -->
+						<circle r="35" cx="400" cy="100" fill="#ffc767" />
+						<!--sun  ends-->
+						<path d="M400 150 H500 A10 10  -1 0 0 490 120 A13 13 -1 0 0 470 110 A35 35 -1 0 0 405 120 A10 10 -1 0 0 400 150" fill="#fff"
+						/>
+						<!--clouds end-->
+
+						<!--sea-->
+						<path d="M0 473 H800 V 600 H0 Z" fill="#3a8bb8" />
+						<!--sea ends-->
+
+						<!--left wall-->
+						<path stroke="#363c54" stroke-width="3" d="M80 445 V400 L136 417 L182 445" fill="#dfd5cc" />
+						<!--left wall ends-->
+
+						<!--left wing-->
+						<path stroke="#363c54" stroke-width="3" d="M130 385 A300 300 -1 0 0 100 305 A300 300 0 0 1 203 317 A80 200 -1 0 0 148 383"
+						 fill="#edece8" />
+						<path stroke="#363c54" stroke-width="3" d="M190 314 A80 200 -1 0 0 142 383 L148 383 A80 200 0 0 1 203 317 Z" fill="#eedfb4"
+						/>
+
+						<!--backwall-->
+						<path stroke="#343953" stroke-width="3" d="M158 360 L162 353 A100 300 0 0 1 203 317 L278 295 L300 400 Z" fill="#edece8" />
+						<path stroke="#343953" stroke-width="3" d="M159 359 L162 353 L400 421 L405 429" fill="#7c96a4" />
+						<path stroke="#343953" stroke-width="3" d="M168 364 L173 355" fill="none" />
+						<path stroke="#343953" stroke-width="3" d="M178 367 L183 358" fill="none" />
+						<path stroke="#343953" stroke-width="3" d="M189 369 L193 362" fill="none" />
+						<path stroke="#343953" stroke-width="3" d="M200 371 L202 366" fill="none" />
+						<path stroke="#343953" stroke-width="3" d="M230 381 L234 375" fill="none" />
+						<path stroke="#343953" stroke-width="3" d="M240 383 L245 376" fill="none" />
+						<path stroke="#343953" stroke-width="3" d="M250 385 L255 379" fill="none" />
+						<path stroke="#343953" stroke-width="3" d="M261 388 L265 382" fill="none" />
+						<path stroke="#343953" stroke-width="3" d="M271 391 L275 385" fill="none" />
+						<!--spikes-->
+						<path stroke="#c9c8c4" stroke-width="2" d="M168 347 L303 386" />
+						<path stroke="#c9c8c4" stroke-width="2" d="M174 339 L303 376" />
+						<path stroke="#c9c8c4" stroke-width="2" d="M182 331 L303 366" />
+						<path stroke="#c9c8c4" stroke-width="2" d="M190 324 L303 356" />
+						<path stroke="#c9c8c4" stroke-width="2" d="M230 324 L303 346" />
+						<path stroke="#c9c8c4" stroke-width="2" d="M230 314 L303 336" />
+						<path stroke="#c9c8c4" stroke-width="2" d="M230 304 L303 326" />
+						<path d="M165 352 A100 200 0 0 1 220 310 A100 200 -1 0 0 169 352" fill="#fff" />
+						<path d="M228 370 A100 200 0 0 1 284 303 A100 200 -1 0 0 231 370" fill="#fff" />
+						<!--spikes end-->
+						<!--backwall ends-->
+
+						<!--spikes and shadow-->
+						<path stroke-width="2" stroke="#c9c8c4" d="M129 375 A15 15 0 0 1 143 375" fill="none" />
+						<path stroke-width="2" stroke="#c9c8c4" d="M127 365 A15 15 0 0 1 147 365" fill="none" />
+						<path stroke-width="2" stroke="#c9c8c4" d="M124 355 A20 20 0 0 1 151 355" fill="none" />
+						<path stroke-width="2" stroke="#c9c8c4" d="M132 375 A200 200 -1 0 0 110 308" fill="none" />
+						<path stroke-width="2" stroke="#c9c8c4" d="M135 373 A200 200 -1 0 0 125 310" fill="none" />
+						<path stroke-width="2" stroke="#c9c8c4" d="M137 374 A300 300 -1 0 0 140 310" fill="none" />
+						<path stroke-width="2" stroke="#c9c8c4" d="M139 374 A300 300 0 0 1 160 315" fill="none" />
+						<path d="M105 309 A300 300 0 0 1 179 318 L185 314 A300 300 -1 0 0 102 306 " fill="#fff" />
+						<!--spikes and shadow ends-->
+						<!--left wing ends-->
+
+						<!--left 2 wing-->
+						<path stroke="#363c54" stroke-width="3" d="M205 381 A300 300 -1 0 0 175 267 A300 300 0 0 1 300 303 A100 300 -1 0 0 214 384"
+						 fill="#edece8" />
+						<path stroke="#363c54" stroke-width="3" d="M220 388 A100 300 0 0 1 300 303 A100 300 -1 0 0 214 384" fill="#eedfb4" />
+						<!--spikes and shadow-->
+						<path stroke-width="2" stroke="#c9c8c4" d="M207 375 A15 15 0 0 1 217 370" fill="none" />
+						<path stroke-width="2" stroke="#c9c8c4" d="M206 365 A15 15 0 0 1 222 355" fill="none" />
+						<path stroke-width="2" stroke="#c9c8c4" d="M216 370 A300 300 -1 0 0 190 270" fill="none" />
+						<path stroke-width="2" stroke="#c9c8c4" d="M223 354 A300 300 -1 0 0 204 272" fill="none" />
+						<path stroke-width="2" stroke="#c9c8c4" d="M233 335 A300 300 -1 0 0 220 277" fill="none" />
+						<path stroke-width="2" stroke="#c9c8c4" d="M242 322 A300 300 -1 0 0 233 279" fill="none" />
+						<path stroke-width="2" stroke="#c9c8c4" d="M251 311 A300 300 -1 0 0 245 282" fill="none" />
+						<path stroke-width="2" stroke="#c9c8c4" d="M260 305 A300 300 -1 0 0 255 285" fill="none" />
+						<path d="M176 268 A300 300 0 0 1 300 305 L300 313 A300 300 -1 0 0 182 272" fill="#fff" />
+						<!--spikes and shadow ends-->
+						<!--left 2 wing ends-->
+
+						<!--left 3 wing-->
+						<path stroke="#363c54" stroke-width="3" d="M280 397 A300 300 -1 0 0 240 215 A200 200 0 0 1 405 330 A900 900 0 0 1 322 400"
+						 fill="#edece8" />
+						<!--spikes-->
+						<path stroke-width="2" stroke="#c9c8c4" d="M282 390 A25 25 0 0 1 315 396" fill="none" />
+						<path stroke-width="2" stroke="#c9c8c4" d="M283 375 A34 34 0 0 1 326 386" fill="none" />
+						<path stroke-width="2" stroke="#c9c8c4" d="M284 360 A40 40 0 0 1 335 376" fill="none" />
+						<path stroke-width="2" stroke="#c9c8c4" d="M293 386 A300 300 -1 0 0 265 220" fill="none" />
+						<path stroke-width="2" stroke="#c9c8c4" d="M298 386 A300 300 -1 0 0 285 230" fill="none" />
+						<path stroke-width="2" stroke="#c9c8c4" d="M302 386 A400 400 -1 0 0 305 240" fill="none" />
+						<path stroke-width="2" stroke="#c9c8c4" d="M306 388 A500 500 -1 0 0 323 246" fill="none" />
+						<path stroke-width="2" stroke="#c9c8c4" d="M310 390 A600 600 -1 0 0 341 260" fill="none" />
+						<path stroke-width="2" stroke="#c9c8c4" d="M313 392 A700 700 -1 0 0 360 275" fill="none" />
+						<path stroke-width="2" stroke="#c9c8c4" d="M316 395 A700 700 -1 0 0 380 295" fill="none" />
+						<!--spikes end-->
+						<!--white shadow-->
+						<path d="M244 217 A200 200 0 0 1 402 331 L395 338 A200 200 -1 0 0 245 220" fill="#fff" />
+						<!--white shadow ends-->
+						<path stroke="#363c54" stroke-width="3" d="M322 400 A900 900 -1 0 0 405 330 L397 315 L315 400" fill="#eedfb4" />
+						<!--left 3 wing ends-->
+
+						<!--left right divider-->
+						<path stroke="#363c54" stroke-width="3" d="M405 330 L395 385 L353 376 L405 330 L448 376 L396 385" fill="#ecebe7" />
+						<path d="M329 398 H465 L447 379 L396 388 L354 378 Z" fill="#c4f6f9" />
+
+						<!--shadow-->
+						<path d="M355 376 L395 385 L445 376 L452 381 L395 391 L348 381" fill="#7d96a4" />
+						<!--shadow ends-->
+
+						<path stroke="#363c54" stroke-width="3" d="M396 385 L355 376" />
+						<path stroke="#363c54" stroke-width="3" d="M396 385 L448 376" />
+						<path stroke="#363c54" stroke-width="3" d="M363 378 L335 400" />
+						<path stroke="#363c54" stroke-width="3" d="M375 380 L348 400" />
+						<path stroke="#363c54" stroke-width="3" d="M386 382 L364 400" />
+						<path stroke="#363c54" stroke-width="3" d="M396 385 L378 400" />
+
+						<path stroke="#363c54" stroke-width="3" d="M440 378 L461 400" />
+						<path stroke="#363c54" stroke-width="3" d="M428 379 L448 400" />
+						<path stroke="#363c54" stroke-width="3" d="M417 381 L435 400" />
+						<path stroke="#363c54" stroke-width="3" d="M407 383 L422 400" />
+						<path stroke="#363c54" stroke-width="3" d="M396 385 L409 400" />
+
+						<!--spikes-->
+						<path stroke="#c9c8c4" stroke-width="2" d="M396 378 L448 367" />
+						<path stroke="#c9c8c4" stroke-width="2" d="M396 370 L448 357" />
+						<path stroke="#c9c8c4" stroke-width="2" d="M398 360 L448 347" />
+						<path stroke="#c9c8c4" stroke-width="2" d="M400 350 L448 337" />
+
+						<path stroke="#c9c8c4" stroke-width="2" d="M396 378 L362 370" />
+						<path stroke="#c9c8c4" stroke-width="2" d="M396 370 L370 363" />
+						<path stroke="#c9c8c4" stroke-width="2" d="M398 359 L379 355" />
+						<path stroke="#c9c8c4" stroke-width="2" d="M400 349 L389 346" />
+						<path stroke="#363c54" stroke-width="3" d="M405 330 L392 400" fill="#ecebe7" />
+						<!--spikes end-->
+
+						<!--left right divider ends-->
+
+						<!--right wing 3 -->
+						<path stroke="#363c54" stroke-width="3" d="M470 399 L405 330 A160 160 0 0 1 546 301 A220 800 -1 0 0 490 399" fill="#edece8"
+						/>
+						<path stroke="#363c54" stroke-width="3" d="M475 400 L415 323 L406 330" fill="#eedfb4" />
+						<path stroke="#363c54" stroke-width="3" d="M546 301 L510 400 L505 399 H490 A220 800 0 0 1 546 301" fill="#363c54" />
+						<!--spikes-->
+						<path stroke="#c9c8c4" stroke-width="2" d="M468 388 A50 50 0 0 1 494 405" fill="none" />
+						<path stroke="#c9c8c4" stroke-width="2" d="M458 375 A50 50 0 0 1 492 390" fill="none" />
+						<path stroke="#c9c8c4" stroke-width="2" d="M448 362 A50 50 0 0 1 496 378" fill="none" />
+						<path stroke="#c9c8c4" stroke-width="2" d="M476 390 A200 200 0 0 1 505 300" fill="none" />
+						<path stroke="#c9c8c4" stroke-width="2" d="M468 388 A200 200 0 0 1 478 305" fill="none" />
+						<path stroke="#c9c8c4" stroke-width="2" d="M458 375 A200 200 0 0 1 458 307" fill="none" />
+						<path stroke="#c9c8c4" stroke-width="2" d="M445 358 A200 200 0 0 1 441 317" fill="none" />
+						<path stroke="#c9c8c4" stroke-width="2" d="M481 394 A300 300 0 0 1 528 300" fill="none" />
+						<path d="M417 324 A160 160 0 0 1 543 303 L538 302 A160 160 -1 0 0 423 331" fill="#fff" />
+						<!--spikes end-->
+						<!--right wing 3 ends-->
+
+						<!--right wing 2-->
+						<!--backwall-->
+						<rect stroke="#343953" stroke-width="3" height="7" width="70" x="540" y="392" rx="3" fill="#7c96a4" />
+						<path stroke="#343953" stroke-width="3" d="M553 392 V400" fill="none" />
+						<path stroke="#343953" stroke-width="3" d="M563 392 V400" fill="none" />
+						<path stroke="#343953" stroke-width="3" d="M573 392 V400" fill="none" />
+						<path d="M540 390 H575 L560 363 Z" fill="#edece8" />
+						<path stroke="#c9c8c4" stroke-width="2" d="M540 387 H575" fill="none" />
+						<path stroke="#c9c8c4" stroke-width="2" d="M540 382 H575" fill="none" />
+						<path stroke="#c9c8c4" stroke-width="2" d="M540 375 H575" fill="none" />
+						<!--backwall ends-->
+						<path stroke="#363c54" stroke-width="3" d="M540 410 A300 300 -1 0 0 494 345 A300 300 0 0 1 561 362 L540 409" fill="#edece8"
+						/>
+						<path stroke="#363c54" stroke-width="3" d="M540 409 L552 359 L559 362" fill="#eedfb4" />
+						<!--spikes-->
+						<path stroke="#c9c8c4" stroke-width="2" d="M536 400 A50 50 0 0 1 542 392" fill="none" />
+						<path stroke="#c9c8c4" stroke-width="2" d="M533 392 A50 50 0 0 1 545 380" fill="none" />
+						<path stroke="#c9c8c4" stroke-width="2" d="M537 396 A200 200 -1 0 0 515 353" fill="none" />
+						<path stroke="#c9c8c4" stroke-width="2" d="M541 396 A200 200 -1 0 0 530 358" fill="none" />
+						<path stroke="#c9c8c4" stroke-width="2" d="M544 383 A200 200 -1 0 0 541 363" fill="none" />
+						<!--spikes end-->
+						<!--right wing 2 ends-->
+
+						<!--right wing-->
+						<path stroke="#363c54" stroke-width="3" d="M584 409 L561 362 A300 300 0 0 1 676 340 A300 300 -1 0 0 629 409" fill="#edece8"
+						/>
+						<path stroke="#363c54" stroke-width="3" d="M588 409 L573 358 L562 362" fill="#eedfb4" />
+						<path stroke="#363c54" stroke-width="3" d="M592 409 A300 300 0 0 1 676 340 A300 300 -1 0 0 629 409" fill="#363c54" />
+						<!--spikes-->
+						<path stroke="#c9c8c4" stroke-width="2" d="M587 398 A50 50 0 0 1 598 400" fill="none" />
+						<path stroke="#c9c8c4" stroke-width="2" d="M585 390 A50 50 0 0 1 605 393" fill="none" />
+						<path stroke="#c9c8c4" stroke-width="2" d="M582 382 A50 50 0 0 1 611 386" fill="none" />
+						<path stroke="#c9c8c4" stroke-width="2" d="M583 385 A100 100 0 0 1 585 357" fill="none" />
+						<path stroke="#c9c8c4" stroke-width="2" d="M588 398 A100 100 0 0 1 598 355" fill="none" />
+						<path stroke="#c9c8c4" stroke-width="2" d="M591 398 A100 100 0 0 1 618 350" fill="none" />
+						<path stroke="#c9c8c4" stroke-width="2" d="M595 398 A100 100 0 0 1 644 348" fill="none" />
+						<path d="M575 359 A300 300 0 0 1 668 342 L659 347 A300 300 -1 0 0 576 363" fill="#fff" />
+						<!--spikes end-->
+
+						<!--side box-->
+						<path stroke="#363b55" stroke-width="3" d="M619 400 H662 L640 375 Z" fill="#e6b682" />
+						<path stroke="#363b55" stroke-width="3" d="M664 400 L655 412 H619 V399" fill="#363b55" />
+						<path stroke="#b98c63" stroke-width="2" d="M627 399 L630 391" fill="none" />
+						<path stroke="#b98c63" stroke-width="2" d="M633 399 L634 386" fill="none" />
+						<path stroke="#b98c63" stroke-width="2" d="M639 399 L639 379" fill="none" />
+						<path stroke="#b98c63" stroke-width="2" d="M646 399 L645 384" fill="none" />
+						<path stroke="#b98c63" stroke-width="2" d="M653 399 L650 389" fill="none" />
+						<!--side box ends-->
+						<!--right wing ends-->
+
+						<!--left front left wall-->
+						<path stroke="#363c54" stroke-width="3" d="M96 405 V386 H138 V418 Z" fill="#dfd5cc" />
+						<!--shadow-->
+						<path d="M97 399 L137 412 V417 L97 404" fill="#9c979d" />
+						<path d="M130 387 H137 V412 H130 Z" fill="#9c979d" />
+						<!--shadow ends-->
+						<!--left front left wall ends-->
+
+						<!--left middle wall-->
+						<path stroke="#363c54" stroke-width="3" d="M138 386 L154 376 L196 376 L235 396 H255 V445 H183 L138 419 Z" fill="#dfd5cc"
+						/>
+						<path stroke="#363c54" stroke-width="3" d="M195 415 H238" fill="none" />
+						<!--shadow-->
+						<path d="M139 413 L192 445 H183 L140 419" stroke-width="1" stroke="none" fill="#9c979d" />
+						<!--shadow ends-->
+						<!--left middle wall ends-->
+
+						<!--middle wall-->
+						<path stroke="#363c54" stroke-width="3" d="M256 396 L293 400 H507 L543 407 H680 L724 423 V447 H257" fill="#dfd5cc" />
+						<!--shadow-->
+						<path d="M256 398 L292 401 H302 V450 H256" fill="#9c979d" />
+						<!--shadow ends-->
+						<path stroke="#363c54" stroke-width="3" d="M280 415 H360" fill="none" />
+						<path stroke="#363c54" stroke-width="3" d="M450 415 H500" fill="none" />
+						<path stroke="#363c54" stroke-width="3" d="M507 400 V450" fill="none" />
+						<!--shadow-->
+						<path d="M508 402 L546 408 H560 V450 H508" fill="#9c979d" />
+						<!--shadow ends-->
+						<path stroke="#363c54" stroke-width="3" d="M540 420 H680 L715 432 V450" fill="none" />
+
+						<!--doors-->
+						<path stroke="#363c54" stroke-width="3" d="M310 425 H330 V445 H310 Z" fill="#61677f" />
+						<path stroke="#363c54" stroke-width="3" d="M340 425 H360 V445 H340 Z" fill="#61677f" />
+						<path stroke="#363c54" stroke-width="3" d="M370 425 H390 V445 H370 Z" fill="#61677f" />
+						<path stroke="#363c54" stroke-width="3" d="M400 425 H420 V445 H400 Z" fill="#61677f" />
+						<path stroke="#363c54" stroke-width="3" d="M430 425 H450 V445 H430 Z" fill="#61677f" />
+						<path stroke="#363c54" stroke-width="3" d="M460 425 H480 V445 H460 Z" fill="#61677f" />
+						<!--doors end-->
+						<!--middle wall ends-->
+
+						<!--base boundaries-->
+						<path stroke="#363c54" stroke-width="3" d="M0 470 H800 H738 V436 H61 V445 H738 V470 H61 V436" fill="none" />
+						<path stroke="#363c54" stroke-width="3" d="M62 469 H738 V446 H62 Z" fill="#dfd5cc" />
+						<path stroke="#363c54" stroke-width="3" d="M70 436 V445 H80 V436 H90 V445 H100 V436 H110 V445 H120 V436 H130 V445 H120 V436 H130 V445 H140 V436 H150 V445 H160 V436 H170 V445 H180 V436 H190 V445 H200 V436 H210 V445 H220 V436 H230 V445 H240 V436 H250 V445 H260 V436 H270 V445 H280 V436 H290 V445 H300 V436 H310 V445 H320 V436 H330 V445 H340 V436 H350 V445 H360 V436 H370 V445 H380 V436 H390 V445 H400 V436 H410 V445 H420 V436 H430 V445 H440 V436 H450 V445 H460 V436 H470 V445 H480 V436 H490 V445 H500 V436 H510 V445 H520 V436 H530 V445 H540 V436 H550 V445 H560 V436 H570 V445 H580 V436 H590 V445 H600 V436 H610 V445 H620 V436 H630 V445 H640 V436 H650 V445 H660 V436 H670 V445 H680 V436 H690 V445 H700 V436 H710 V445 H720 V436 H730 V445 H740"
+						 fill="none" />
+						<rect height="3" width="70" x="100" y="500" rx="3" fill="#326893" />
+						<rect height="3" width="70" x="300" y="550" rx="3" fill="#326893" />
+						<rect height="3" width="70" x="400" y="500" rx="3" fill="#326893" />
+						<rect height="3" width="70" x="600" y="550" rx="3" fill="#326893" />
+						<rect height="3" width="70" x="700" y="590" rx="3" fill="#326893" />
+						<rect height="3" width="70" x="30" y="590" rx="3" fill="#326893" />
+						<rect height="3" width="70" x="700" y="500" rx="3" fill="#326893" />
+						<!--base boundaries end-->
+
+					</svg>
+				</div>
+			</div>
+			<div class="slide" id="slide2">
+				<div class="content">
+					
+				</div>
+			</div>
+			<div class="slide" id="slide3">
+				<div class="content">
+					
+				</div>
 			</div>
 		</div>
-		<div class="slide" id="slide2">
-			<div class="content">
-				<h1>Slides too!</h1>
-			</div>
-		</div>
-		<div class="slide" id="slide2">
-			<div class="content">
-				<h1>More slides!</h1>
-			</div>
+		<div class="section" id="section2">
+				<div class="content cont s--inactive">
+						<!-- cont inner start -->
+						<div class="cont__inner">
+							<!-- el start -->
+							<div class="el">
+								<div class="el__overflow">
+									<div class="el__inner">
+										<div class="el__bg"></div>
+										<div class="el__preview-cont">
+											<h2 class="el__heading">Section 1</h2>
+										</div>
+										<div class="el__content">
+											<div class="el__text">Whatever</div>
+											<div class="el__close-btn"></div>
+										</div>
+									</div>
+								</div>
+								<div class="el__index">
+									<div class="el__index-back">1</div>
+									<div class="el__index-front">
+										<div class="el__index-overlay" data-index="1">1</div>
+									</div>
+								</div>
+							</div>
+							<!-- el end -->
+							<!-- el start -->
+							<div class="el">
+								<div class="el__overflow">
+									<div class="el__inner">
+										<div class="el__bg"></div>
+										<div class="el__preview-cont">
+											<h2 class="el__heading">Section 2</h2>
+										</div>
+										<div class="el__content">
+											<div class="el__text">Whatever</div>
+											<div class="el__close-btn"></div>
+										</div>
+									</div>
+								</div>
+								<div class="el__index">
+									<div class="el__index-back">2</div>
+									<div class="el__index-front">
+										<div class="el__index-overlay" data-index="2">2</div>
+									</div>
+								</div>
+							</div>
+							<!-- el end -->
+							<!-- el start -->
+							<div class="el">
+								<div class="el__overflow">
+									<div class="el__inner">
+										<div class="el__bg"></div>
+										<div class="el__preview-cont">
+											<h2 class="el__heading">Section 3</h2>
+										</div>
+										<div class="el__content">
+											<div class="el__text">Whatever</div>
+											<div class="el__close-btn"></div>
+										</div>
+									</div>
+								</div>
+								<div class="el__index">
+									<div class="el__index-back">3</div>
+									<div class="el__index-front">
+										<div class="el__index-overlay" data-index="3">3</div>
+									</div>
+								</div>
+							</div>
+							<!-- el end -->
+							<!-- el start -->
+							<div class="el">
+								<div class="el__overflow">
+									<div class="el__inner">
+										<div class="el__bg"></div>
+										<div class="el__preview-cont">
+											<h2 class="el__heading">Section 4</h2>
+										</div>
+										<div class="el__content">
+											<div class="el__text">Whatever</div>
+											<div class="el__close-btn"></div>
+										</div>
+									</div>
+								</div>
+								<div class="el__index">
+									<div class="el__index-back">4</div>
+									<div class="el__index-front">
+										<div class="el__index-overlay" data-index="4">4</div>
+									</div>
+								</div>
+							</div>
+							<!-- el end -->
+							<!-- el start -->
+							<div class="el">
+								<div class="el__overflow">
+									<div class="el__inner">
+										<div class="el__bg"></div>
+										<div class="el__preview-cont">
+											<h2 class="el__heading">Section 5</h2>
+										</div>
+										<div class="el__content">
+											<div class="el__text">Whatever</div>
+											<div class="el__close-btn"></div>
+										</div>
+									</div>
+								</div>
+								<div class="el__index">
+									<div class="el__index-back">5</div>
+									<div class="el__index-front">
+										<div class="el__index-overlay" data-index="5">5</div>
+									</div>
+								</div>
+							</div>
+							<!-- el end -->
+						</div>
+					</div>
 		</div>
 	</div>
-	<div class="section" id="section2">
-		<div class="content">
-			<h1>Compatible</h1>
-			<p>IE 8+ support.</p>
-		</div>
-	</div>
-</div>
+	<script type="text/javascript" src="./dist/javascript.fullPage.js"></script>
+	<script src="js/index.js"></script>
+	<script type="text/javascript">
+		fullpage.initialize('#fullpage', {
+			anchors: ['firstPage', 'secondPage', '3rdPage', '4thpage', 'lastPage'],
+			menu: '#menu',
+			css3: true
+		});
+		function openNav() {
+			document.getElementById("mySidenav").style.width = "250px";
+			document.getElementById("hebtn").style.right = "-50px";
+			document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+		}
 
-<script type="text/javascript" src="./dist/javascript.fullPage.js"></script>
-<script type="text/javascript">
-	fullpage.initialize('#fullpage', {
-		anchors: ['firstPage', 'secondPage', '3rdPage', '4thpage', 'lastPage'],
-		menu: '#menu',
-		css3:true
-	});
-
-</script>
+		function closeNav() {
+			document.getElementById("mySidenav").style.width = "0";
+			document.getElementById("hebtn").style.right = "50px";
+			document.body.style.backgroundColor = "white";
+		}
+	</script>
 
 </body>
+
 </html>
